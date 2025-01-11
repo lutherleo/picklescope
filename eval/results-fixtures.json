@@ -1,0 +1,25 @@
+{
+  "picklescope_version": "0.1.0",
+  "fixture_conformance": {
+    "malicious_pattern_fixtures": 38,
+    "detected_high_or_critical": 38,
+    "missed": [],
+    "other_fixtures": 53
+  },
+  "random_benign_pickles": {
+    "seed": 20261024,
+    "samples": 2000,
+    "per_protocol": {
+      "0": 334,
+      "1": 334,
+      "2": 333,
+      "3": 333,
+      "4": 333,
+      "5": 333
+    },
+    "total_bytes": 112788,
+    "false_positives": 0,
+    "false_positive_rate": 0.0,
+    "flagged": []
+  }
+}

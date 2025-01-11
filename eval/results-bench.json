@@ -1,0 +1,116 @@
+{
+  "picklescope_version": "0.1.0",
+  "python": "3.12.11",
+  "machine": "Darwin arm64",
+  "runs": 5,
+  "pickle_analyser": [
+    {
+      "protocol": 2,
+      "bytes": 743944,
+      "opcodes": 228032,
+      "seconds": 0.1523,
+      "mib_per_s": 4.66,
+      "mops_per_s": 1.497
+    },
+    {
+      "protocol": 4,
+      "bytes": 564761,
+      "opcodes": 228041,
+      "seconds": 0.1279,
+      "mib_per_s": 4.21,
+      "mops_per_s": 1.783
+    },
+    {
+      "protocol": 2,
+      "bytes": 6357048,
+      "opcodes": 1900208,
+      "seconds": 1.1952,
+      "mib_per_s": 5.07,
+      "mops_per_s": 1.59
+    },
+    {
+      "protocol": 4,
+      "bytes": 4858459,
+      "opcodes": 1900283,
+      "seconds": 1.1553,
+      "mib_per_s": 4.01,
+      "mops_per_s": 1.645
+    }
+  ],
+  "fixture_corpus": {
+    "files": 93,
+    "seconds": 0.0079
+  },
+  "real_models": [
+    {
+      "id": "tiny-random-bert/pytorch_model.bin",
+      "bytes": 540217,
+      "seconds": 0.0029
+    },
+    {
+      "id": "tiny-random-bert/model.safetensors",
+      "bytes": 520212,
+      "seconds": 0.0002
+    },
+    {
+      "id": "tiny-random-bert/onnx/model.onnx",
+      "bytes": 449599,
+      "seconds": 0.0016
+    },
+    {
+      "id": "tiny-random-gpt2/pytorch_model.bin",
+      "bytes": 3561811,
+      "seconds": 0.0047
+    },
+    {
+      "id": "tiny-random-gpt2/model.safetensors",
+      "bytes": 453864,
+      "seconds": 0.0002
+    },
+    {
+      "id": "tiny-random-gpt2/tf_model.h5",
+      "bytes": 8462256,
+      "seconds": 0.0022
+    },
+    {
+      "id": "bert-tiny/pytorch_model.bin",
+      "bytes": 17756393,
+      "seconds": 0.0018
+    },
+    {
+      "id": "stories260K-f32.gguf",
+      "bytes": 1185376,
+      "seconds": 0.0004
+    },
+    {
+      "id": "stories260K.gguf",
+      "bytes": 1185376,
+      "seconds": 0.0004
+    },
+    {
+      "id": "stories15M-q4_0.gguf",
+      "bytes": 19077344,
+      "seconds": 0.0162
+    },
+    {
+      "id": "mmproj-tinygemma3.gguf",
+      "bytes": 1039072,
+      "seconds": 0.0002
+    },
+    {
+      "id": "animal-classification/model_epoch_10.keras",
+      "bytes": 1279709,
+      "seconds": 0.0003
+    },
+    {
+      "id": "bert_tiny_en_uncased/config.json",
+      "bytes": 454,
+      "seconds": 0.0001
+    },
+    {
+      "id": "bert_tiny_en_uncased/tokenizer.json",
+      "bytes": 761,
+      "seconds": 0.0001
+    }
+  ]
+}

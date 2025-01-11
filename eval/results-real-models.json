@@ -1,0 +1,224 @@
+{
+  "picklescope_version": "0.1.0",
+  "files": 14,
+  "files_with_medium_or_higher": 0,
+  "false_positive_rate": 0.0,
+  "files_with_any_finding": 0,
+  "rows": [
+    {
+      "id": "tiny-random-bert/pytorch_model.bin",
+      "repo": "hf-internal-testing/tiny-random-bert",
+      "revision": "f171d7baecaf37b5da5a3616d8833b9969753535",
+      "expected_format": "torch-zip",
+      "detected_format": "zip:torch",
+      "size": 540217,
+      "sha256_verified": true,
+      "findings": [],
+      "false_positive": false,
+      "imports": [
+        "collections.OrderedDict",
+        "torch.FloatStorage",
+        "torch.LongStorage",
+        "torch._utils._rebuild_tensor_v2"
+      ],
+      "seconds": 0.0212
+    },
+    {
+      "id": "tiny-random-bert/model.safetensors",
+      "repo": "hf-internal-testing/tiny-random-bert",
+      "revision": "f171d7baecaf37b5da5a3616d8833b9969753535",
+      "expected_format": "safetensors",
+      "detected_format": "safetensors",
+      "size": 520212,
+      "sha256_verified": true,
+      "findings": [],
+      "false_positive": false,
+      "imports": [],
+      "seconds": 0.006
+    },
+    {
+      "id": "tiny-random-bert/onnx/model.onnx",
+      "repo": "hf-internal-testing/tiny-random-bert",
+      "revision": "f171d7baecaf37b5da5a3616d8833b9969753535",
+      "expected_format": "onnx",
+      "detected_format": "onnx",
+      "size": 449599,
+      "sha256_verified": true,
+      "findings": [],
+      "false_positive": false,
+      "imports": [],
+      "seconds": 0.0068
+    },
+    {
+      "id": "tiny-random-gpt2/pytorch_model.bin",
+      "repo": "hf-internal-testing/tiny-random-gpt2",
+      "revision": "71034c5d8bde858ff824298bdedc65515b97d2b9",
+      "expected_format": "torch-zip",
+      "detected_format": "zip:torch",
+      "size": 3561811,
+      "sha256_verified": true,
+      "findings": [],
+      "false_positive": false,
+      "imports": [
+        "collections.OrderedDict",
+        "torch.ByteStorage",
+        "torch.FloatStorage",
+        "torch._utils._rebuild_tensor_v2"
+      ],
+      "seconds": 0.024
+    },
+    {
+      "id": "tiny-random-gpt2/model.safetensors",
+      "repo": "hf-internal-testing/tiny-random-gpt2",
+      "revision": "71034c5d8bde858ff824298bdedc65515b97d2b9",
+      "expected_format": "safetensors",
+      "detected_format": "safetensors",
+      "size": 453864,
+      "sha256_verified": true,
+      "findings": [],
+      "false_positive": false,
+      "imports": [],
+      "seconds": 0.0051
+    },
+    {
+      "id": "tiny-random-gpt2/tf_model.h5",
+      "repo": "hf-internal-testing/tiny-random-gpt2",
+      "revision": "71034c5d8bde858ff824298bdedc65515b97d2b9",
+      "expected_format": "hdf5",
+      "detected_format": "hdf5",
+      "size": 8462256,
+      "sha256_verified": true,
+      "findings": [],
+      "false_positive": false,
+      "imports": [],
+      "seconds": 0.0125
+    },
+    {
+      "id": "bert-tiny/pytorch_model.bin",
+      "repo": "prajjwal1/bert-tiny",
+      "revision": "6f75de8b60a9f8a2fdf7b69cbd86d9e64bcb3837",
+      "expected_format": "torch-zip",
+      "detected_format": "zip:torch",
+      "size": 17756393,
+      "sha256_verified": true,
+      "findings": [],
+      "false_positive": false,
+      "imports": [
+        "collections.OrderedDict",
+        "torch.FloatStorage",
+        "torch.LongStorage",
+        "torch._utils._rebuild_tensor_v2"
+      ],
+      "seconds": 0.018
+    },
+    {
+      "id": "stories260K-f32.gguf",
+      "repo": "ggml-org/test-model-stories260K",
+      "revision": "479896ec924af6d40fd419ab8f4d1eb2101de00d",
+      "expected_format": "gguf",
+      "detected_format": "gguf",
+      "size": 1185376,
+      "sha256_verified": true,
+      "findings": [],
+      "false_positive": false,
+      "imports": [],
+      "seconds": 0.0059
+    },
+    {
+      "id": "stories260K.gguf",
+      "repo": "ggml-org/tiny-llamas",
+      "revision": "99dd1a73db5a37100bd4ae633f4cfce6560e1567",
+      "expected_format": "gguf",
+      "detected_format": "gguf",
+      "size": 1185376,
+      "sha256_verified": true,
+      "findings": [],
+      "false_positive": false,
+      "imports": [],
+      "seconds": 0.0061
+    },
+    {
+      "id": "stories15M-q4_0.gguf",
+      "repo": "ggml-org/tiny-llamas",
+      "revision": "99dd1a73db5a37100bd4ae633f4cfce6560e1567",
+      "expected_format": "gguf",
+      "detected_format": "gguf",
+      "size": 19077344,
+      "sha256_verified": true,
+      "findings": [],
+      "false_positive": false,
+      "imports": [],
+      "seconds": 0.0405
+    },
+    {
+      "id": "mmproj-tinygemma3.gguf",
+      "repo": "ggml-org/tinygemma3-GGUF",
+      "revision": "c287502cd9e278dac8eed805c112cce5d0081e0b",
+      "expected_format": "gguf",
+      "detected_format": "gguf",
+      "size": 1039072,
+      "sha256_verified": true,
+      "findings": [],
+      "false_positive": false,
+      "imports": [],
+      "seconds": 0.006
+    },
+    {
+      "id": "animal-classification/model_epoch_10.keras",
+      "repo": "Jommarn/animal-classification-keras",
+      "revision": "09839015d393903092da7342397879da34cae920",
+      "expected_format": "keras",
+      "detected_format": "zip:keras",
+      "size": 1279709,
+      "sha256_verified": true,
+      "findings": [],
+      "false_positive": false,
+      "imports": [
+        "keras.DTypePolicy",
+        "keras.Sequential",
+        "keras.initializers.GlorotUniform",
+        "keras.initializers.Zeros",
+        "keras.layers.Conv2D",
+        "keras.layers.Dense",
+        "keras.layers.Dropout",
+        "keras.layers.GlobalAveragePooling2D",
+        "keras.layers.InputLayer",
+        "keras.layers.MaxPooling2D",
+        "keras.layers.Rescaling",
+        "keras.optimizers.Adam"
+      ],
+      "seconds": 0.0066
+    },
+    {
+      "id": "bert_tiny_en_uncased/config.json",
+      "repo": "keras/bert_tiny_en_uncased",
+      "revision": "c96cd7d7d88bd468f278709616b8ab2565c34e6e",
+      "expected_format": "keras-config",
+      "detected_format": "keras-config",
+      "size": 454,
+      "sha256_verified": true,
+      "findings": [],
+      "false_positive": false,
+      "imports": [
+        "keras_hub.src.models.bert.bert_backbone.BertBackbone"
+      ],
+      "seconds": 0.0077
+    },
+    {
+      "id": "bert_tiny_en_uncased/tokenizer.json",
+      "repo": "keras/bert_tiny_en_uncased",
+      "revision": "c96cd7d7d88bd468f278709616b8ab2565c34e6e",
+      "expected_format": "keras-config",
+      "detected_format": "keras-config",
+      "size": 761,
+      "sha256_verified": true,
+      "findings": [],
+      "false_positive": false,
+      "imports": [
+        "keras.DTypePolicy",
+        "keras_hub.src.models.bert.bert_tokenizer.BertTokenizer"
+      ],
+      "seconds": 0.0045
+    }
+  ]
+}
