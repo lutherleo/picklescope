@@ -1,0 +1,94 @@
+[project]
+name = "picklescope"
+version = "0.1.0"
+description = "Static scanner for ML model files (pickle, PyTorch, safetensors, ONNX, GGUF, Keras) that never deserializes them."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "picklescope contributors" }]
+requires-python = ">=3.12"
+dependencies = []
+keywords = ["pickle", "security", "machine-learning", "supply-chain", "sarif", "static-analysis"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Typing :: Typed",
+]
+
+[project.scripts]
+picklescope = "picklescope.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.11.28,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "gguf==0.19.0",
+    "hypothesis==6.170.9",
+    "jsonschema==4.26.0",
+    "mypy==2.4.0",
+    "numpy==2.5.4",
+    "onnx==1.23.2",
+    "pytest==9.1.1",
+    "pytest-cov==7.1.0",
+    "ruff==0.17.2",
+    "safetensors==0.8.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests", "scripts"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "UP", "SIM", "RUF", "N", "C4", "PTH", "PL", "BLE", "S", "T20", "RET", "PIE", "ANN"]
+ignore = [
+    "PLR0911", "PLR0912", "PLR0917", "PLR0913", "PLR0915", "PLR2004",  # complexity: parsers are branchy by nature
+    "S101",     # assert is used for type narrowing
+    "S324",     # sha1 not used for security
+    "RUF001",   # ambiguous unicode in strings is intended in fixtures
+    "ANN401",   # Any is the honest type for parsed JSON
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["picklescope"]
+known-local-folder = ["conftest", "fixturegen"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S", "ANN", "PLR", "T20", "PTH", "N802", "PLC0415"]
+"scripts/**" = ["T20", "S310", "S311", "PTH"]
+"src/picklescope/cli.py" = ["T20"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src", "scripts", "tests"]
+warn_unreachable = true
+
+[[tool.mypy.overrides]]
+module = ["gguf.*", "safetensors.*", "onnx.*", "jsonschema.*"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["tests.*"]
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+disallow_untyped_calls = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+markers = ["slow: longer property-based runs"]
+
+[tool.coverage.run]
+source = ["picklescope"]
+branch = true
+
+[tool.coverage.report]
+fail_under = 85
+show_missing = true
+skip_covered = true
+exclude_also = ["if __name__ == .__main__.:", "raise AssertionError"]
