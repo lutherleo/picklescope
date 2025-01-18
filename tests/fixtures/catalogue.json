@@ -1,0 +1,366 @@
+{
+  "gguf/bad_magic.gguf": {
+    "description": "wrong magic",
+    "malicious_pattern": false
+  },
+  "gguf/bad_value_type.gguf": {
+    "description": "value type 99",
+    "malicious_pattern": false
+  },
+  "gguf/bad_version.gguf": {
+    "description": "version 9",
+    "malicious_pattern": false
+  },
+  "gguf/block_mismatch.gguf": {
+    "description": "Q8_0 row of 30 elements",
+    "malicious_pattern": false
+  },
+  "gguf/chat_template_dunder.gguf": {
+    "description": "chat template reaching __class__ (prints a class name)",
+    "malicious_pattern": true
+  },
+  "gguf/duplicate_key.gguf": {
+    "description": "general.name twice",
+    "malicious_pattern": false
+  },
+  "gguf/duplicate_tensor.gguf": {
+    "description": "tensor name repeated",
+    "malicious_pattern": false
+  },
+  "gguf/huge_counts.gguf": {
+    "description": "counts that cannot fit in the file",
+    "malicious_pattern": true
+  },
+  "gguf/misaligned.gguf": {
+    "description": "offset 4 with alignment 32",
+    "malicious_pattern": false
+  },
+  "gguf/overlap.gguf": {
+    "description": "two tensors at the same offset",
+    "malicious_pattern": false
+  },
+  "gguf/string_oob.gguf": {
+    "description": "key length beyond the file",
+    "malicious_pattern": true
+  },
+  "gguf/tensor_oob.gguf": {
+    "description": "tensor larger than the file",
+    "malicious_pattern": true
+  },
+  "gguf/too_many_dims.gguf": {
+    "description": "five dimensions",
+    "malicious_pattern": true
+  },
+  "gguf/unknown_type.gguf": {
+    "description": "ggml type 99",
+    "malicious_pattern": false
+  },
+  "gguf/valid_big_endian.gguf": {
+    "description": "big-endian v3 header",
+    "malicious_pattern": false
+  },
+  "gguf/valid_v1.gguf": {
+    "description": "same content in the v1 layout",
+    "malicious_pattern": false
+  },
+  "gguf/valid_v3.gguf": {
+    "description": "F32 and Q8_0 tensors",
+    "malicious_pattern": false
+  },
+  "keras/allowed_function.keras": {
+    "description": "activation referencing keras.activations.relu",
+    "malicious_pattern": false
+  },
+  "keras/bad_config.keras": {
+    "description": "invalid config.json",
+    "malicious_pattern": false
+  },
+  "keras/benign.keras": {
+    "description": "Sequential with Dense",
+    "malicious_pattern": false
+  },
+  "keras/config_only.keras": {
+    "description": "archive holding only config.json, activation referencing deny-listed os.getcwd",
+    "malicious_pattern": true
+  },
+  "keras/custom_object.keras": {
+    "description": "custom layer class from a third-party module",
+    "malicious_pattern": false
+  },
+  "keras/function_denied.keras": {
+    "description": "activation referencing deny-listed os.getcwd",
+    "malicious_pattern": true
+  },
+  "keras/function_print.keras": {
+    "description": "activation referencing builtins.print",
+    "malicious_pattern": true
+  },
+  "keras/lambda.keras": {
+    "description": "Keras 3 Lambda layer",
+    "malicious_pattern": true
+  },
+  "keras/lambda_npz_weights.keras": {
+    "description": "Keras 3 Lambda layer with an .npz weights store and no metadata.json",
+    "malicious_pattern": true
+  },
+  "keras/legacy_lambda.h5": {
+    "description": "synthetic HDF5 with a Keras 2 Lambda config",
+    "malicious_pattern": true
+  },
+  "keras/preset/config.json": {
+    "description": "KerasHub-style preset config.json with a Lambda",
+    "malicious_pattern": true
+  },
+  "npy/arrays.npz": {
+    "description": "npz with two plain arrays",
+    "malicious_pattern": false
+  },
+  "npy/bad_header.npy": {
+    "description": "header that is not a literal",
+    "malicious_pattern": false
+  },
+  "npy/float32.npy": {
+    "description": "plain float array",
+    "malicious_pattern": false
+  },
+  "npy/object_print.npy": {
+    "description": "object array whose pickle calls print",
+    "malicious_pattern": true
+  },
+  "npy/object_strings.npy": {
+    "description": "object array of strings",
+    "malicious_pattern": false
+  },
+  "onnx/absolute_path.onnx": {
+    "description": "absolute external location",
+    "malicious_pattern": true
+  },
+  "onnx/bad_range/model.onnx": {
+    "description": "offset beyond the external file",
+    "malicious_pattern": false
+  },
+  "onnx/bad_range/weights.bin": {
+    "description": "8-byte external file",
+    "malicious_pattern": false
+  },
+  "onnx/custom_domain.onnx": {
+    "description": "operator from a custom domain",
+    "malicious_pattern": false
+  },
+  "onnx/external_ok/model.onnx": {
+    "description": "external data next to the model",
+    "malicious_pattern": false
+  },
+  "onnx/external_ok/weights.bin": {
+    "description": "external tensor bytes",
+    "malicious_pattern": false
+  },
+  "onnx/garbage.onnx": {
+    "description": "truncated protobuf",
+    "malicious_pattern": false
+  },
+  "onnx/missing_external.onnx": {
+    "description": "external file that does not exist",
+    "malicious_pattern": false
+  },
+  "onnx/traversal.onnx": {
+    "description": "external location with '..'",
+    "malicious_pattern": true
+  },
+  "onnx/valid.onnx": {
+    "description": "inline initializer",
+    "malicious_pattern": false
+  },
+  "pickle/benign_ordereddict_p2.pkl": {
+    "description": "allow-listed OrderedDict",
+    "malicious_pattern": false
+  },
+  "pickle/benign_text_p0.pkl": {
+    "description": "protocol-0 dict of constants",
+    "malicious_pattern": false
+  },
+  "pickle/call_print.pkl": {
+    "description": "invokes builtins.print",
+    "malicious_pattern": true
+  },
+  "pickle/colorsys_call.pkl": {
+    "description": "calls colorsys.rgb_to_hsv (deny-listed by tests/fixtures/policy-test.toml)",
+    "malicious_pattern": true
+  },
+  "pickle/dunder_traversal.pkl": {
+    "description": "dotted name walking through __code__",
+    "malicious_pattern": true
+  },
+  "pickle/dynamic_stack_global.pkl": {
+    "description": "STACK_GLOBAL name computed by a call",
+    "malicious_pattern": true
+  },
+  "pickle/ext_opcode.pkl": {
+    "description": "EXT1 extension-registry import",
+    "malicious_pattern": true
+  },
+  "pickle/getattr_gadget.pkl": {
+    "description": "getattr(str, 'upper')('abc'): deny-listed gadget plus indirect call",
+    "malicious_pattern": true
+  },
+  "pickle/global_mutation.pkl": {
+    "description": "BUILD applied to an imported class",
+    "malicious_pattern": true
+  },
+  "pickle/import_only_dedent.pkl": {
+    "description": "imports textwrap.dedent without calling it",
+    "malicious_pattern": false
+  },
+  "pickle/inst_p0.pkl": {
+    "description": "protocol-0 INST calling colorsys.rgb_to_hsv",
+    "malicious_pattern": true
+  },
+  "pickle/legacy_torch.pt": {
+    "description": "legacy (non-zip) torch.save layout",
+    "malicious_pattern": false
+  },
+  "pickle/malformed_name.pkl": {
+    "description": "global name containing a space",
+    "malicious_pattern": true
+  },
+  "pickle/nested_pickle.pkl": {
+    "description": "bytes constant that is itself a print pickle",
+    "malicious_pattern": true
+  },
+  "pickle/newobj_ex_p4.pkl": {
+    "description": "NEWOBJ_EX instantiating textwrap.TextWrapper",
+    "malicious_pattern": true
+  },
+  "pickle/obj_p1.pkl": {
+    "description": "protocol-1 OBJ instantiating textwrap.TextWrapper",
+    "malicious_pattern": true
+  },
+  "pickle/persistent_id.pkl": {
+    "description": "persistent id outside a torch archive",
+    "malicious_pattern": false
+  },
+  "pickle/protocol_9.pkl": {
+    "description": "PROTO 9",
+    "malicious_pattern": true
+  },
+  "pickle/py2_builtin_getattr.pkl": {
+    "description": "Python-2 spelling of builtins.getattr",
+    "malicious_pattern": true
+  },
+  "pickle/stack_global_memo.pkl": {
+    "description": "STACK_GLOBAL operands fetched from the memo",
+    "malicious_pattern": true
+  },
+  "pickle/trailing_data.pkl": {
+    "description": "non-pickle bytes after STOP",
+    "malicious_pattern": false
+  },
+  "pickle/truncated.pkl": {
+    "description": "stream cut short",
+    "malicious_pattern": false
+  },
+  "pickle/two_pickles.pkl": {
+    "description": "benign pickle followed by a second pickle",
+    "malicious_pattern": true
+  },
+  "pickle/unknown_opcode.pkl": {
+    "description": "opcode 0xff",
+    "malicious_pattern": true
+  },
+  "safetensors/appended_payload.safetensors": {
+    "description": "bytes appended after the tensors",
+    "malicious_pattern": false
+  },
+  "safetensors/bad_dtype.safetensors": {
+    "description": "unknown dtype",
+    "malicious_pattern": false
+  },
+  "safetensors/bad_metadata.safetensors": {
+    "description": "non-string metadata value",
+    "malicious_pattern": false
+  },
+  "safetensors/bad_shape.safetensors": {
+    "description": "negative dimension",
+    "malicious_pattern": false
+  },
+  "safetensors/duplicate_key.safetensors": {
+    "description": "tensor name repeated in the JSON header",
+    "malicious_pattern": false
+  },
+  "safetensors/gap.safetensors": {
+    "description": "unreferenced bytes before the first tensor",
+    "malicious_pattern": false
+  },
+  "safetensors/header_past_eof.safetensors": {
+    "description": "length prefix beyond the file",
+    "malicious_pattern": false
+  },
+  "safetensors/header_too_large.safetensors": {
+    "description": "length prefix of 200 MB",
+    "malicious_pattern": false
+  },
+  "safetensors/not_json.safetensors": {
+    "description": "header is not JSON",
+    "malicious_pattern": false
+  },
+  "safetensors/overlap.safetensors": {
+    "description": "two tensors share bytes",
+    "malicious_pattern": false
+  },
+  "safetensors/pickle_in_disguise.safetensors": {
+    "description": "a print pickle with a .safetensors name",
+    "malicious_pattern": true
+  },
+  "safetensors/size_mismatch.safetensors": {
+    "description": "range does not match shape x dtype",
+    "malicious_pattern": false
+  },
+  "safetensors/valid.safetensors": {
+    "description": "two tensors tiling the buffer",
+    "malicious_pattern": false
+  },
+  "safetensors/zip_polyglot.safetensors": {
+    "description": "safetensors file with a zip archive appended",
+    "malicious_pattern": true
+  },
+  "torch/benign_state_dict.pt": {
+    "description": "torch.save-shaped archive",
+    "malicious_pattern": false
+  },
+  "torch/missing_storage.pt": {
+    "description": "persistent ids referencing absent and path-like records",
+    "malicious_pattern": false
+  },
+  "torch/print_in_data_pkl.pt": {
+    "description": "archive whose data.pkl calls print",
+    "malicious_pattern": true
+  },
+  "torch/shadowed_data_pkl.pt": {
+    "description": "two archive/data.pkl entries; the first calls print, the second is benign",
+    "malicious_pattern": true
+  },
+  "torch/torchscript.pt": {
+    "description": "TorchScript archive with code/",
+    "malicious_pattern": false
+  },
+  "zip/bomb.zip": {
+    "description": "20 MiB of zeros deflated to ~20 KiB",
+    "malicious_pattern": false
+  },
+  "zip/encrypted.zip": {
+    "description": "member flagged as encrypted",
+    "malicious_pattern": false
+  },
+  "zip/hostile_layout.zip": {
+    "description": "zip-slip, duplicate, symlink and native-library members",
+    "malicious_pattern": true
+  },
+  "zip/nested_npy.zip": {
+    "description": "object .npy holding a print pickle inside a generic zip",
+    "malicious_pattern": true
+  },
+  "zip/not_really.zip": {
+    "description": "corrupt zip",
+    "malicious_pattern": false
+  }
+}

@@ -1,0 +1,8 @@
+# Test policy: deny-lists a harmless function so the CRITICAL path can be exercised
+# end to end without any dangerous callable in the fixtures.
+name = "fixture-test"
+
+[[deny]]
+pattern = "colorsys:rgb_to_hsv"
+reason = "harmless function deny-listed for tests"
+category = "test"
