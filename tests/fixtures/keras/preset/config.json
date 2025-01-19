@@ -1,0 +1,38 @@
+{
+ "module": "keras",
+ "class_name": "Sequential",
+ "config": {
+  "name": "fixture",
+  "layers": [
+   {
+    "module": "keras.layers",
+    "class_name": "InputLayer",
+    "config": {
+     "batch_shape": [
+      null,
+      4
+     ],
+     "name": "in"
+    },
+    "registered_name": null
+   },
+   {
+    "module": "keras.layers",
+    "class_name": "Lambda",
+    "config": {
+     "name": "identity_lambda",
+     "function": {
+      "class_name": "__lambda__",
+      "config": {
+       "code": "bGFtYmRhIHg6IHgK",
+       "defaults": null,
+       "closure": null
+      }
+     }
+    },
+    "registered_name": null
+   }
+  ]
+ },
+ "registered_name": null
+}
