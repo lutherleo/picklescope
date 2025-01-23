@@ -1,0 +1,5 @@
+€cbuiltins
+getattr
+cbuiltins
+str
+Œupper†RŒabc…R.
