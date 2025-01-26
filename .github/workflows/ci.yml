@@ -1,0 +1,47 @@
+name: CI
+on:
+  push:
+    branches: [main, "feature/**"]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: make check (format, lint, mypy --strict, tests + coverage)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.11.28"
+          enable-cache: true
+      - run: uv python install 3.12
+      - run: make check
+      - run: make demo
+
+  real-models:
+    name: false-positive eval on pinned public models
+    runs-on: ubuntu-latest
+    needs: check
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.11.28"
+          enable-cache: true
+      - run: uv python install 3.12
+      - run: uv sync --frozen
+      - name: fetch (checksum-verified) and evaluate
+        run: make eval
+      - name: real-model tests (no longer skipped once models are cached)
+        run: uv run pytest tests/test_real_models.py
+      - name: SARIF of the fixture corpus
+        run: uv run picklescope scan --no-hash -f sarif -o fixtures.sarif tests/fixtures || test $? -eq 1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: picklescope-sarif
+          path: fixtures.sarif
